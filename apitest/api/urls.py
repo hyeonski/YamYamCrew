@@ -1,6 +1,11 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from .views import PostView
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('post', PostView)
+
 post_list = PostView.as_view({
     'post': 'create',
     'get': 'list'
